@@ -1,0 +1,14 @@
+I.
+	SELECT country.Name 
+	FROM country 
+	INNER JOIN city ON country.CountryID = city.CountryID 
+	HAVING sum(city.Population) > 400
+
+II.
+	SELECT DISTINCT country.Name 
+	FROM country
+	INNER JOIN city ON country.CountyID = city.CountryID 
+	WHERE NOT EXISTS 
+	    (SELECT * 
+	     FROM building 
+	     WHERE city.CityID = building.CityID)
